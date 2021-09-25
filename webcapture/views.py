@@ -20,7 +20,7 @@ def websiteCapture(request):
     options = Options()
     # headlessモード（ブラウザを立ち上げない）
     options.add_argument("--headless")
-    driver = webdriver.Chrome(executable_path="./chromedriver", options=options)
+    driver = webdriver.Chrome(executable_path="chromedriver", options=options)
     driver.get(websiteurl)
     # ウィンドウを最大化
     driver.maximize_window()
