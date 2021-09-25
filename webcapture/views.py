@@ -13,8 +13,8 @@ class IndexView(TemplateView):
 # Webサイトのキャプチャ画像を取得しレスポンス返却
 def websiteCapture(request):
     # 前回処理時のキャプチャファイルが残っていれば削除
-    if os.path.exists("./capture.png"):
-        os.remove("./capture.png")
+    if os.path.exists("capture.png"):
+        os.remove("capture.png")
     websiteurl = request.POST.get("websiteurl")
     # chrome driverを定義
     options = Options()
@@ -33,4 +33,4 @@ def websiteCapture(request):
     driver.find_elements_by_tag_name("body")[0].screenshot("capture.png")
     # driverを閉じる
     driver.quit()
-    return FileResponse(open('./capture.png', "rb"), as_attachment=True, filename="capture.png")
+    return FileResponse(open('capture.png', "rb"), as_attachment=True, filename="capture.png")
